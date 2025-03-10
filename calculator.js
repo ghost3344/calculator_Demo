@@ -3,10 +3,12 @@ const add = (numbers) => {
         return 0;
     }
 
-    const numberArray = numbers.split(",");
+    const updatedString = numbers.replace(/\n/g, ",");
+
+    const numberArray = updatedString.split(",");
 
     const totalSum = numberArray.reduce((sum, currentNumber) => {
-        const parsedNumber = parseInt(currentNumber);
+        const parsedNumber = isNaN(currentNumber) ? 0 : parseInt(currentNumber);
         return sum + parsedNumber;
     }, 0);
 
