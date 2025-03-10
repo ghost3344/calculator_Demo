@@ -22,3 +22,7 @@ test("return sum for multiple numbers", () => {
 test("handle new lines", () => {
     expect(add("1\n2,3")).toBe(6);
 });
+
+test("supports custom delimiters", () => {
+    expect(add("//;\n1;2")).toBe(3);
+  });
