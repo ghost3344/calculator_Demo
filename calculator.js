@@ -11,6 +11,12 @@ const add = (numbers) => {
 
     const numberArray = updatedString.split(delimiter || ",");
 
+    const negatives = numberArray.filter((num) => parseInt(num) < 0);
+
+    if (negatives.length > 0) {
+      throw new Error(`negative numbers not allowed: ${negatives}`);
+    }
+
     const totalSum = numberArray.reduce((sum, currentNumber) => {
         const parsedNumber = isNaN(currentNumber) ? 0 : parseInt(currentNumber);
         return sum + parsedNumber;
